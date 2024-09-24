@@ -1,13 +1,14 @@
 from django.shortcuts import render
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User    #"User" references replaced with "CustomUser" custom model
+from .models import *
 from rest_framework import generics
 from .serializers import UserSerializer, NoteSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from .models import Note
+#from .models import Note   #Imported above via *
 
 # Create your views here.
 class CreatedUserView(generics.CreateAPIView):
-    queryset = User.objects.all()       #Check through list of Users to ensure user doesnt already exist
+    queryset = CustomUser.objects.all()       #Check through list of Users to ensure user doesnt already exist
     serializer_class = UserSerializer   #Tells the view which data to accept to create this user
     permission_classes = [AllowAny]     #Allows anyone to create a new User via this page
     

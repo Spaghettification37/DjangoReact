@@ -1,7 +1,7 @@
-import Form from "../components/Form"
+import LoginForm from "../components/LoginForm"
 
 function Login() {  //This will call the Form created in Form.jsx using the following props (properties)
-    return <Form route="/api/token/" method="login" />
+    return <LoginForm route="/api/token/" />
 }
 
 export default Login
