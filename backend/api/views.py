@@ -12,6 +12,16 @@ class CreatedUserView(generics.CreateAPIView):
     serializer_class = UserSerializer   #Tells the view which data to accept to create this user
     permission_classes = [AllowAny]     #Allows anyone to create a new User via this page
     
+class ProfileRead(generics.RetrieveAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
+    
+class ProfileUpdate(generics.UpdateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
+    
 class NoteListCreate(generics.ListCreateAPIView):   #Note we are displaying a list, so using 'generics.ListCreateAPIView' instead
     serializer_class = NoteSerializer
     permission_classes = [IsAuthenticated]          #Allows only authenticated to access list
