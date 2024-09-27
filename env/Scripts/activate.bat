@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=E:\Personal\Python\DjangoReact\env
+set VIRTUAL_ENV=Z:\GitHub\DjangoReact\env
 
 if not defined PROMPT set PROMPT=$P$G
 

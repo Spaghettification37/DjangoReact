@@ -19,7 +19,8 @@ function LoginForm({ route }) {
             const res = await api.post(route, { username, password })   //Set res variable to response from backend after sending form data
             localStorage.setItem(ACCESS_TOKEN, res.data.access);
             localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-            navigate("/")
+            //navigate("/")
+            navigate("/profile");   //Should eventually just navigate to / (home) once that's set up
         } catch (error) {
             alert(error)
         } finally { //Eventually, no matter what happens, loading must stop at the end
