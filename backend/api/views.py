@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth import get_user
 #from django.contrib.auth.models import User    #"User" references replaced with "CustomUser" custom model
 from .models import *
 from rest_framework import generics
@@ -11,6 +12,21 @@ class CreatedUserView(generics.CreateAPIView):
     queryset = CustomUser.objects.all()       #Check through list of Users to ensure user doesnt already exist
     serializer_class = UserSerializer   #Tells the view which data to accept to create this user
     permission_classes = [AllowAny]     #Allows anyone to create a new User via this page
+    
+class UserProfileRead(generics.RetrieveAPIView):
+    serializer_class = UserSerializer
+    permission_classes = [AllowAny]
+    
+    def get_object(self):
+        return self.request.user
+    
+class UserProfileUpdate(generics.RetrieveUpdateAPIView):
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
+    
+    def get_object(self):
+        return self.request.user
+        
     
 class NoteListCreate(generics.ListCreateAPIView):   #Note we are displaying a list, so using 'generics.ListCreateAPIView' instead
     serializer_class = NoteSerializer

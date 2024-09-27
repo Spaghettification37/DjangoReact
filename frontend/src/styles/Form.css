@@ -10,7 +10,7 @@
     max-width: 400px;
   }
   
-  .form-input {
+.form-input {
     width: 90%;
     padding: 10px;
     margin: 10px 0;
@@ -19,7 +19,7 @@
     box-sizing: border-box;
   }
   
-  .form-button {
+.form-button{
     width: 95%;
     padding: 10px;
     margin: 20px 0;
@@ -31,6 +31,6 @@
     transition: background-color 0.2s ease-in-out;
   }
   
-  .form-button:hover {
+.form-button:hover {
     background-color: #0056b3;
   }

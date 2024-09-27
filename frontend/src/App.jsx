@@ -3,8 +3,11 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Home from "./pages/Home"
+import UserProfile from "./pages/UserProfile"
+import Notes from "./pages/Notes"
 import NotFound from "./pages/NotFound"
 import ProtectedRoute from "./components/ProtectedRoute"
+import ProfileForm from "./components/ProfileForm"
 
 function Logout() { //Clear local storage of any tokens and redirect to login screen
   localStorage.clear()
@@ -34,6 +37,9 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="logout" element={<Logout />} />
         <Route path="register" element={<RegisterAndLogout />} />
+        <Route path="profile" element={<UserProfile />} />
+        <Route path="edit-profile" element={<ProfileForm />} />
+        <Route path="notes" element={<Notes />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -19,7 +19,7 @@ function RegisterForm({ route }) {
 
         try {
             await api.post(route, { username, password, email, displayName })   //Set res variable to response from backend after sending form data
-            navigate("/login")
+            navigate("/login")   //Send to Profile page to finish setup? or back to login?
         } catch (error) {
             alert(error)
         } finally { //Eventually, no matter what happens, loading must stop at the end
